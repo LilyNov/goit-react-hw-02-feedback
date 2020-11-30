@@ -1,54 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Counter.css';
+import FeedbackBtn from '../FeedbackBtn/FeedbackBtn';
+import ValueOfCounter from '../ValueOfCounter/ValueOfCounter';
 
 export default class Counter extends React.Component {
-  handleGoodBtn = () => {
-    console.log('Клик по кнопке Good');
+  static defaultProps = {
+    initialValue: 0,
   };
+
+  static propTypes = {};
+
+  state = { value: this.props.initialValue };
+
+  handleGoodBtn = eventId => {
+    this.setState(prevState => ({
+      value: prevState.value.filter(val => val.id !== eventId),
+    }));
+    //  this.state.value + 1
+  };
+
+  handleNeutralBtn = event => {
+    const neutral = event.target;
+    if (neutral.textContent === 'Neutral') {
+      this.setState({ value: this.state.value + 1 });
+      return;
+    }
+  };
+
   render() {
     return (
       <div className="Counter">
         <div className="feedback">
           <h2 className="textFeedback">Please leave feedback</h2>
-          <button className="buttonFeedback" onClick={this.handleGoodBtn}>
-            Good
-          </button>
-          <button
-            className="buttonFeedback"
-            onClick={() => {
-              console.log('Клик по кнопке Neutral');
-            }}
-          >
-            Neutral
-          </button>
-          <button
-            className="buttonFeedback"
-            onClick={() => {
-              console.log('Клик по кнопке Bad');
-            }}
-          >
-            Bad
-          </button>
+          <FeedbackBtn
+            onGoodBtn={this.handleGoodBtn}
+            onNeutralBtn={this.handleNeutralBtn}
+          />
           <h3>Statistics</h3>
           <ul className="listStat ">
-            <li className="itemStat">
-              Good: <span className="countStat">3</span>
-            </li>
-            <li className="itemStat">
-              Neutral: <span className="countStat">2</span>
-            </li>
-            <li className="itemStat">
-              Bad: <span className="countStat">2</span>
-            </li>
-            <li className="itemStat">
-              Total: <span className="countStat">7</span>
-            </li>
-            <li className="itemStat">
-              Positive feedback: <span className="countStat">43 %</span>
-            </li>
+            <ValueOfCounter value={this.state.value} />
           </ul>
         </div>
       </div>
     );
   }
 }
+
+// {
+//   this.state.value;
+// }
