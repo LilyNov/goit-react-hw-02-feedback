@@ -6,10 +6,16 @@ import ValueOfCounter from '../ValueOfCounter/ValueOfCounter';
 
 export default class Counter extends React.Component {
   static defaultProps = {
-    initialValue: 0,
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  static propTypes = {};
+  static propTypes = {
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  };
 
   state = {
     good: 0,
@@ -28,6 +34,9 @@ export default class Counter extends React.Component {
   handleBadlBtn = () => {
     this.setState({ bad: this.state.bad + 1 });
   };
+
+  // countTotalFeedback()
+  // countPositiveFeedbackPercentage()
 
   render() {
     return (

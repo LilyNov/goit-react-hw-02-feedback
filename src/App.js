@@ -4,7 +4,7 @@ import Counter from './Counter/Counter';
 function App() {
   return (
     <>
-      <Counter initialValue={0} />
+      <Counter good={0} neutral={0} bad={0} />
     </>
   );
 }
