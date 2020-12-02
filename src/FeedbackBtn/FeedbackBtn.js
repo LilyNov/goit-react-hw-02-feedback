@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeedbackBtn = ({ onGoodBtn, onNeutralBtn }) => (
+const FeedbackBtn = ({ onGoodBtn, onNeutralBtn, onBadBtn }) => (
   <>
     <button className="buttonFeedback" onClick={onGoodBtn}>
       Good
@@ -8,12 +8,7 @@ const FeedbackBtn = ({ onGoodBtn, onNeutralBtn }) => (
     <button className="buttonFeedback" onClick={onNeutralBtn}>
       Neutral
     </button>
-    <button
-      className="buttonFeedback"
-      onClick={() => {
-        console.log('Клик по кнопке Bad');
-      }}
-    >
+    <button className="buttonFeedback" onClick={onBadBtn}>
       Bad
     </button>
   </>

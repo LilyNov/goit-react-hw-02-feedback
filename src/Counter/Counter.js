@@ -11,21 +11,22 @@ export default class Counter extends React.Component {
 
   static propTypes = {};
 
-  state = { value: this.props.initialValue };
-
-  handleGoodBtn = eventId => {
-    this.setState(prevState => ({
-      value: prevState.value.filter(val => val.id !== eventId),
-    }));
-    //  this.state.value + 1
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
   };
 
-  handleNeutralBtn = event => {
-    const neutral = event.target;
-    if (neutral.textContent === 'Neutral') {
-      this.setState({ value: this.state.value + 1 });
-      return;
-    }
+  handleGoodBtn = () => {
+    this.setState({ good: this.state.good + 1 });
+  };
+
+  handleNeutralBtn = () => {
+    this.setState({ neutral: this.state.neutral + 1 });
+  };
+
+  handleBadlBtn = () => {
+    this.setState({ bad: this.state.bad + 1 });
   };
 
   render() {
@@ -36,10 +37,15 @@ export default class Counter extends React.Component {
           <FeedbackBtn
             onGoodBtn={this.handleGoodBtn}
             onNeutralBtn={this.handleNeutralBtn}
+            onBadBtn={this.handleBadlBtn}
           />
           <h3>Statistics</h3>
           <ul className="listStat ">
-            <ValueOfCounter value={this.state.value} />
+            <ValueOfCounter
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+            />
           </ul>
         </div>
       </div>
@@ -50,3 +56,5 @@ export default class Counter extends React.Component {
 // {
 //   this.state.value;
 // }
+
+// state = { value: this.props.initialValue };

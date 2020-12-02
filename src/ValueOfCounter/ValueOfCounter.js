@@ -1,15 +1,15 @@
 import React from 'react';
 
-const ValueOfCounter = ({ value }) => (
+const ValueOfCounter = ({ good, neutral, bad }) => (
   <>
     <li className="itemStat">
-      Good: <span className="countStat">{value}</span>
+      Good: <span className="countStat">{good}</span>
     </li>
     <li className="itemStat">
-      Neutral: <span className="countStat">{value}</span>
+      Neutral: <span className="countStat">{neutral}</span>
     </li>
     <li className="itemStat">
-      Bad: <span className="countStat">{value}</span>
+      Bad: <span className="countStat">{bad}</span>
     </li>
     <li className="itemStat">
       Total: <span className="countStat">7</span>
