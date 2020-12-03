@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ValueOfCounter = ({ good, neutral, bad, total, percentage }) => (
+const Statistics = ({ good, neutral, bad, total, percentage }) => (
   <>
     {total > 0 ? (
       <>
@@ -27,4 +27,4 @@ const ValueOfCounter = ({ good, neutral, bad, total, percentage }) => (
   </>
 );
 
-export default ValueOfCounter;
+export default Statistics;

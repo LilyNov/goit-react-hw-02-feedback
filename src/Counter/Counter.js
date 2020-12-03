@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Counter.css';
-import FeedbackBtn from '../FeedbackBtn/FeedbackBtn';
-import ValueOfCounter from '../ValueOfCounter/ValueOfCounter';
+import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
+import Statistics from '../Statistics/Statistics';
 
 export default class Counter extends React.Component {
   static defaultProps = {
@@ -46,14 +46,14 @@ export default class Counter extends React.Component {
       <div className="Counter">
         <div className="feedback">
           <h2 className="textFeedback">Please leave feedback</h2>
-          <FeedbackBtn
+          <FeedbackOptions
             onGoodBtn={this.handleGoodBtn}
             onNeutralBtn={this.handleNeutralBtn}
             onBadBtn={this.handleBadlBtn}
           />
           <h3>Statistics</h3>
           <ul className="listStat ">
-            <ValueOfCounter
+            <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
               bad={this.state.bad}
