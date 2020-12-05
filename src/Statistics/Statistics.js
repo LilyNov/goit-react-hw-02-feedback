@@ -1,4 +1,5 @@
 import React from 'react';
+import Notification from '../Notification/Notification';
 
 const Statistics = ({ good, neutral, bad, total, percentage }) => (
   <>
@@ -22,7 +23,7 @@ const Statistics = ({ good, neutral, bad, total, percentage }) => (
         </li>
       </>
     ) : (
-      <p>No feedback given</p>
+      <Notification message="No feedback given"></Notification>
     )}
   </>
 );

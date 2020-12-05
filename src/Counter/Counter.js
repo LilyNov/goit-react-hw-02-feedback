@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './Counter.css';
 import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Statistics from '../Statistics/Statistics';
+import Section from '../Section/Section';
 
 export default class Counter extends React.Component {
   static defaultProps = {
@@ -46,30 +47,27 @@ export default class Counter extends React.Component {
     return (
       <div className="Counter">
         <div className="feedback">
-          <h2 className="textFeedback">Please leave feedback</h2>
-          <FeedbackOptions
-            onGoodBtn={this.handleGoodBtn}
-            onNeutralBtn={this.handleNeutralBtn}
-            onBadBtn={this.handleBadlBtn}
-          />
-          <h3>Statistics</h3>
-          <ul className="listStat ">
-            <Statistics
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
-              total={countTotalFeedback}
-              percentage={countPositiveFeedbackPercentage}
+          <Section title="Please leave feedback">
+            <FeedbackOptions
+              onGoodBtn={this.handleGoodBtn}
+              onNeutralBtn={this.handleNeutralBtn}
+              onBadBtn={this.handleBadlBtn}
             />
-          </ul>
+          </Section>
+
+          <Section title="Statistics">
+            <ul className="listStat ">
+              <Statistics
+                good={this.state.good}
+                neutral={this.state.neutral}
+                bad={this.state.bad}
+                total={countTotalFeedback}
+                percentage={countPositiveFeedbackPercentage}
+              />
+            </ul>
+          </Section>
         </div>
       </div>
     );
   }
 }
-
-// {
-//   this.state.value;
-// }
-
-// state = { value: this.props.initialValue };
