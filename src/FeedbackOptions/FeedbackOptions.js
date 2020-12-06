@@ -1,14 +1,15 @@
 import React from 'react';
+import s from '../FeedbackOptions/FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ onGoodBtn, onNeutralBtn, onBadBtn }) => (
   <>
-    <button className="buttonFeedback" onClick={onGoodBtn}>
+    <button className={s.btnGood} onClick={onGoodBtn}>
       Good
     </button>
-    <button className="buttonFeedback" onClick={onNeutralBtn}>
+    <button className={s.btnNeutral} onClick={onNeutralBtn}>
       Neutral
     </button>
-    <button className="buttonFeedback" onClick={onBadBtn}>
+    <button className={s.btnBad} onClick={onBadBtn}>
       Bad
     </button>
   </>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Counter.css';
+import s from '../Counter/Counter.module.css';
 import FeedbackOptions from '../FeedbackOptions/FeedbackOptions';
 import Statistics from '../Statistics/Statistics';
 import Section from '../Section/Section';
@@ -45,7 +45,7 @@ export default class Counter extends React.Component {
     );
 
     return (
-      <div className="Counter">
+      <div className={s.container}>
         <div className="feedback">
           <Section title="Please leave feedback">
             <FeedbackOptions
@@ -56,7 +56,7 @@ export default class Counter extends React.Component {
           </Section>
 
           <Section title="Statistics">
-            <ul className="listStat ">
+            <ul className={s.listStat}>
               <Statistics
                 good={this.state.good}
                 neutral={this.state.neutral}

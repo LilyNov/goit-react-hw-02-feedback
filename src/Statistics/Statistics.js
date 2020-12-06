@@ -19,7 +19,7 @@ const Statistics = ({ good, neutral, bad, total, percentage }) => (
         </li>
         <li className="itemStat">
           Positive feedback:
-          <span className="countStat">{percentage} %</span>
+          <span className="countStat"> {percentage} %</span>
         </li>
       </>
     ) : (
